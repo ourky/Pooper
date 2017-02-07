@@ -1,0 +1,24 @@
+using UnityEngine;
+using System.Collections;
+
+public class PrimerUporabe : MonoBehaviour {
+
+	public AudioMaster audioScript; //OBVEZNO
+
+	void Start () 
+	{
+		InvokeRepeating ("Call", 4f, 4f);
+		audioScript = GameObject.FindObjectOfType(typeof(AudioMaster)) as AudioMaster; //OBVEZNO
+	}
+	
+	public void Call() 
+	{
+		//audioScript.Custom (5); //Igraj 5 plasti
+		//audioScript.Default(); //Igraj le prvo plast
+		audioScript.AddLayer(); //Dodaj eno plast melodiji
+		//audioScript.RemoveLayer(); //Odstrani eno plast melodije
+		//audioScript.PlayBirdSFX(); //BirdHit
+		//audioScript.PlaySFX(4); //BirdPoopGroundHit
+		//audioScript.PlaySFX(5); //ShootPoop
+	}
+}

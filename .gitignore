@@ -28,3 +28,18 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Builds
+*.apk
+*.unitypackage
+*.exe
+*.rar
+*.zip
+
+#Build folders
+/Version*
+/Buids
+
+#Private file
+/Assets/Scripts/HighScoresData.cs
+/Assets/Scripts/HighScoresData.cs.meta
