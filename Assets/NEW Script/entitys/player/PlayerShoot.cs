@@ -14,19 +14,21 @@ public class PlayerShoot : MonoBehaviour {
     {
         playerPosition = gameObject.transform.position;
 		fireRate = baseFireRate;
+		StartCoroutine(wait()); // po nekem delayu zacne strelat
     }
-    private void FixedUpdate()
-    {
-        playerPosition = gameObject.transform.position;
-        Vector2 bulletPosition = new Vector2(playerPosition.x, playerPosition.y);
-
-        if (Time.time >= nextFire && Time.time >= pocaki)
-        {
-			//Debug.Log("shoot " + PlayerShoot.fireRate );
+	private IEnumerator wait()
+	{
+		yield return new WaitForSeconds(pocaki);
+		StartCoroutine(shoot());
+	}
+	private IEnumerator shoot()
+	{
+		while (true)
+		{
+			playerPosition = gameObject.transform.position;
+			Vector2 bulletPosition = new Vector2(playerPosition.x, playerPosition.y);
 			Instantiate(Bullet, bulletPosition, new Quaternion(0, 0, 0, 0));
-            nextFire = Time.time + fireRate;
-        }
-
-    }
-
+			yield return new WaitForSeconds(fireRate);
+		}
+	}
 }

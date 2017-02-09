@@ -22,7 +22,6 @@ public class Shoot_BirdShit : MonoBehaviour
     {
         if (Time.time >= NextFire)
         {
-
 			Instantiate(ShitBullet, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.35f), Quaternion.identity);
             NextFire = Time.time + Firerate + Random.Range(0.0f, 1.0f);
         }

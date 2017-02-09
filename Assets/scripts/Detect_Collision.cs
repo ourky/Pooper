@@ -44,7 +44,6 @@ public class Detect_Collision : MonoBehaviour {
             
             //funkcija ko ptič umre
             StartCoroutine(Death(Flyup));
-           
         }
         
         //da ptič ve katera pozicija je zasedena
@@ -62,7 +61,6 @@ public class Detect_Collision : MonoBehaviour {
         //Game_master.master.SpawnBird();
         //Bird_Rigidbody.velocity = Vector2.up * speed; //STARO
 
-
 		Bird_Rigidbody.isKinematic = false; 			//NOVO - Koda za padajoče ptiče
 		Vector2 randomVector = Random.insideUnitCircle; //NOVO
 		if(randomVector.y < 0f)							//NOVO
@@ -71,7 +69,6 @@ public class Detect_Collision : MonoBehaviour {
 		}
 		Bird_Rigidbody.AddForce(randomVector * 3f, ForceMode2D.Impulse); //NOVO
 		Bird_Rigidbody.AddTorque(randomVector.magnitude * 2f, ForceMode2D.Impulse);//NOVO
-
 
         yield return new WaitForSeconds(sec);
         Destroy(gameObject);
