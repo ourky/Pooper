@@ -31,7 +31,7 @@ public class Game_master : MonoBehaviour {
     }
 
     //LIVES
-    public void Add(int value, int timeInc)
+    public void Add(int value)
     {   
         Score_am += value;
         //Clock.cl.IncreaseTime(timeInc);

@@ -5,7 +5,7 @@ public class Detect_Collision : MonoBehaviour {
     private GameObject Bird = null;
 	
     public int value = 10;
-    public int timeInc = 4;
+    //public int timeInc = 4;
 	private Rigidbody2D Bird_Rigidbody = null;
     
 	private int speed = 2;
@@ -30,9 +30,8 @@ public class Detect_Collision : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Time.time >= cas && Flydown) {
-		Bird_Rigidbody.velocity = Vector2.zero;
-		Flydown = false;
-		//hit = true;
+			Bird_Rigidbody.velocity = Vector2.zero;
+			Flydown = false;
 		}
 	}
     void OnTriggerEnter2D(Collider2D other)
@@ -57,7 +56,7 @@ public class Detect_Collision : MonoBehaviour {
     IEnumerator Death(int sec)
     {
         Destroy(Bird.GetComponent<Shoot_BirdShit>());       //da ptič neha srati uničim script za srat
-        Game_master.master.Add(value,timeInc);
+        Game_master.master.Add(value);
         Game_master.master.ptici -= 1;
         Pozition_master.mast.Free_Poz(pozition);
         //Game_master.master.SpawnBird();
