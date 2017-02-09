@@ -3,13 +3,9 @@ using System.Collections;
 using System;
 
 public class BirdDirDown : BaseBirdScript {
-	
+
 	protected override void Start () {
 		base.Start();
-		lives = 3;
-	}
-	
-	protected void Update () {
 	}
 	protected override void death()
 	{
@@ -23,6 +19,10 @@ public class BirdDirDown : BaseBirdScript {
 
 	protected override IEnumerator shootBirdShit()
 	{
-		throw new NotImplementedException();
+		while (alive)
+		{
+
+		}
 	}
+	
 }
