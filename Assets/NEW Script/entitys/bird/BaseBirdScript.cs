@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class BaseBirdScript : MonoBehaviour {
+public class BaseBirdScript : MonoBehaviour {
     protected GameObject thisGameObject;
     protected Rigidbody2D thisRigidBody;
 	protected const float casUleta = 1.2f;
