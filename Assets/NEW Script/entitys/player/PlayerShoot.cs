@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerShoot : MonoBehaviour {
     public const float baseFireRate = 0.7f;
     public static float fireRate;
-    private float nextFire = 1.5f;
     private float pocaki = 2f;
     private Vector2 playerPosition;
 
