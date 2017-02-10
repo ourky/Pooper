@@ -41,7 +41,6 @@ public class Game_master : MonoBehaviour {
     public void ChangeLives(int change) {
         lives += change;
 
-
 		heartsPlane.transform.localScale = new Vector3 (1f, (float) lives, 1f); //NOVO
 		heartsMat.mainTextureScale = new Vector2 ((float)lives, 1f); //NOVO
 
