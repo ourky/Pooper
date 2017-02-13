@@ -31,7 +31,7 @@ public class BaseBirdScript : MonoBehaviour {
 	}
 	protected virtual void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player")
+		if (other.tag == "Player" && alive)
 		{
 			lives--;
 			Destroy(other.gameObject);
@@ -53,13 +53,15 @@ public class BaseBirdScript : MonoBehaviour {
     
     protected virtual void death()
 	{
-		thisRigidBody.isKinematic = false;             //NOVO - Koda za padajoče ptiče
-		Vector2 randomVector = Random.insideUnitCircle; //NOVO
-		if (randomVector.y < 0f)                            //NOVO
+		thisRigidBody.isKinematic = false;
+		alive = false;
+		GameMaster.master.addPoints(value);  
+		Vector2 randomVector = Random.insideUnitCircle; 
+		if (randomVector.y < 0f)                            
 		{
 			randomVector = new Vector2(randomVector.x, -randomVector.y);
 		}
-		thisRigidBody.AddForce(randomVector * 3f, ForceMode2D.Impulse); //NOVO
+		thisRigidBody.AddForce(randomVector * 3f, ForceMode2D.Impulse); 
 		thisRigidBody.AddTorque(randomVector.magnitude * 2f, ForceMode2D.Impulse);
 	}
 }

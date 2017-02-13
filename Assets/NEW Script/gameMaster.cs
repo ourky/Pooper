@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class gameMaster : MonoBehaviour {
+public class GameMaster : MonoBehaviour {
+	public static GameMaster master = null;
+	private long points = 0;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Start()
+	{
+		master = this;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void addPoints(int value)
+	{
+		points += value;
 	}
 }

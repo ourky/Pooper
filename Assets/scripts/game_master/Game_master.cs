@@ -13,9 +13,9 @@ public class Game_master : MonoBehaviour {
 	public Material heartsMat; //NOVO
 	public GameObject heartsPlane; //NOVO
 
-    private Component Score_field;
-
-    public ArrayList pozitions = new ArrayList();
+	// za kaj se je to sploh rabl??
+    //private Component Score_field;
+    //public ArrayList pozitions = new ArrayList();
 
     void Awake() {
         master = this;
@@ -30,7 +30,6 @@ public class Game_master : MonoBehaviour {
         //UpdateLives(lives);
     }
 
-    //LIVES
     public void Add(int value)
     {   
         Score_am += value;
@@ -38,7 +37,8 @@ public class Game_master : MonoBehaviour {
         Score.scor.Update_Score(Score_am);
         Score_keeper.Score_keep.ChangeScore(Score_am);
     }
-    public void ChangeLives(int change) {
+	//LIVES
+	public void ChangeLives(int change) {
         lives += change;
 
 		heartsPlane.transform.localScale = new Vector3 (1f, (float) lives, 1f); //NOVO
