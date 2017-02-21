@@ -13,7 +13,8 @@ public class BaseBirdScript : MonoBehaviour {
 	protected int value = 10;
 	protected bool alive = true;
 	protected float firerate = 1.5f;
-	protected Vector2 pozicija;		//zacetna pozicija ptica
+	protected Vector2 pozicija;     //zacetna pozicija ptica
+	protected float deleteAfter = 4; // po kokih sekundah po smrti ga zbriše
 
 	protected virtual void Start () {
         thisGameObject = gameObject;
@@ -51,7 +52,7 @@ public class BaseBirdScript : MonoBehaviour {
 		}
 	}
     
-    protected virtual void death()
+    protected virtual IEnumerator death()
 	{
 		thisRigidBody.isKinematic = false;
 		alive = false;
@@ -63,5 +64,7 @@ public class BaseBirdScript : MonoBehaviour {
 		}
 		thisRigidBody.AddForce(randomVector * 3f, ForceMode2D.Impulse); 
 		thisRigidBody.AddTorque(randomVector.magnitude * 2f, ForceMode2D.Impulse);
+		yield return new WaitForSeconds(deleteAfter);
+		Destroy(gameObject);
 	}
 }
